@@ -85,6 +85,21 @@ public:
     }
 
 
+    T& front() {
+        if (glava == nullptr) {
+            throw new out_of_range("Q je prazaan");
+        }
+        return glava->vrijednost;
+    }
+    T& back() {
+        if (rep == nullptr) {
+            throw new out_of_range("Q je prazan");
+        }
+        return rep->vrijednost;
+    }
+    size_t size_q() {
+        return size;
+    }
 
 
 };
