@@ -70,6 +70,27 @@ public:
         }
 
     }
+    void brisiVeci(T v) {
+        if (glava == nullptr) return;
+
+        if (glava ->vrijednost > v) {
+            auto temp = glava;
+            glava = glava ->sljedeci;
+            delete temp;
+        }
+
+        auto tekuci = glava;
+        while (tekuci ->sljedeci != nullptr) {
+            if (tekuci ->sljedeci ->vrijednost > v) {
+                auto brisanje = tekuci ->sljedeci;
+                tekuci ->sljedeci = brisanje ->sljedeci;
+                delete brisanje;
+            }
+            else {
+                tekuci = tekuci->sljedeci;
+            }
+        }
+    }
 
     void deleteAtIndex(int index) {
         if (index < 0 ) return;
