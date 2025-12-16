@@ -115,6 +115,21 @@ public:
 
     }
 
+    void okreni() {
+        Cvor* prethodni = nullptr;
+        auto tekuci = glava;
+        Cvor* sljedeci = nullptr;
+
+
+        while (tekuci != nullptr) {
+            sljedeci = tekuci ->sljedeci;
+            tekuci->sljedeci = prethodni;
+            prethodni = tekuci;
+            tekuci = sljedeci;
+        }
+        glava = prethodni;
+    }
+
     void deleteAtIndex(int index) {
         if (index < 0 ) return;
         if (index == 0) {
