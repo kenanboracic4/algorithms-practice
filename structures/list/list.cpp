@@ -162,6 +162,20 @@ public:
         delete cvorZaBrisanje;
     }
 
+    void okreni() {
+        Cvor* pokNaPrethodni = nullptr;
+        auto tekuci = glava;
+        Cvor* sljedeci = nullptr;
+
+        while (tekuci != nullptr) {
+            sljedeci = tekuci->sljedeci;
+            tekuci->sljedeci = prethodni;
+            prethodni = tekuci;
+            tekuci = sljedeci;
+        }
+        glava = prethodni;
+    }
+
     void insertAtIndex(const T vrijednost, int index) {
 
         if (index == 0) {
