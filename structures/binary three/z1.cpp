@@ -17,7 +17,30 @@ class Three {
 public:
     Three():glava(nullptr){}
 
+    void dodaj(T vrijednost) {
+        auto novi = new Cvor(vrijednost);
+       if (glava == nullptr) {
 
+           glava = novi;
+           return;
+       }
+        auto tekuci = glava;
+        while (true) {
+            if (tekuci ->vrijednost >= vrijednost ) {
+                if (tekuci ->lijevi == nullptr) {
+                    tekuci ->lijevi = novi;
+                    return;
+                }
+                tekuci = tekuci ->lijevi;
+            }else {
+                if (tekuci ->desni == nullptr) {
+                    tekuci ->desni = novi;
+                    return;
+                }
+                tekuci = tekuci ->desni;
+            }
+        }
+    }
 
     void ispisi_rek(Cvor* c) {
         if (c == nullptr) return;
